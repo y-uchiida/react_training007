@@ -1,0 +1,13 @@
+export default {
+  roots: ["<rootDir>/src"],
+  testMatch: [
+    "**/__tests__/**/*.+(ts|tsx|js)",
+    "**/?(*.)+(spec|test).+(ts|tsx|js)",
+  ],
+  testEnvironment: "jsdom",
+  transform: {
+    // "^.+\\.tsx?$": "esbuild-jest",
+    "^.+\\.(t|j)sx?$": "@swc/jest",
+  },
+  extensionsToTreatAsEsm: [".ts", ".tsx"],
+};
