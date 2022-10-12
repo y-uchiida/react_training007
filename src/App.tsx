@@ -6,6 +6,7 @@ import {
   incrementByAmount,
 } from "./features/counter/counterSlice";
 import "./App.css";
+import RenderInput from "./components/RenderInput";
 
 function App() {
   const counterValue = useAppSelector((state) => state.counter.value);
@@ -37,6 +38,9 @@ function App() {
           </button>
         </div>
       </div>
+
+      <h1>input and click test</h1>
+      <RenderInput outputConsole={console.log} />
     </div>
   );
 }
