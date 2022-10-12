@@ -1,6 +1,8 @@
+import React from "react";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import RenderInput from "./RenderInput";
+import { jest } from "@jest/globals"
 
 // 使わないけどエラーになるので空の関数を渡しておく
 const outputConsoleMock = () => { };

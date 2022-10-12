@@ -8,6 +8,7 @@ import {
 import "./App.css";
 import RenderInput from "./components/RenderInput";
 import ListSampleComponent from "./components/ListSampleComponent";
+import UseEffectTestSampleComponent from "./components/UseEffectTestSampleComponent";
 
 function App() {
   const counterValue = useAppSelector((state) => state.counter.value);
@@ -48,6 +49,9 @@ function App() {
 
       <h2>if items array is empty, show 'no items' string</h2>
       <ListSampleComponent items={[]} />
+
+      <h1>useEffect (initial mount operation) test</h1>
+      <UseEffectTestSampleComponent />
     </div>
   );
 }
