@@ -7,6 +7,7 @@ import {
 } from "./features/counter/counterSlice";
 import "./App.css";
 import RenderInput from "./components/RenderInput";
+import ListSampleComponent from "./components/ListSampleComponent";
 
 function App() {
   const counterValue = useAppSelector((state) => state.counter.value);
@@ -41,6 +42,12 @@ function App() {
 
       <h1>input and click test</h1>
       <RenderInput outputConsole={console.log} />
+
+      <h1>list render test</h1>
+      <ListSampleComponent items={[{ id: 1, name: 'React' }, { id: 2, name: 'Angular' }, { id: 3, name: 'Vue' },]} />
+
+      <h2>if items array is empty, show 'no items' string</h2>
+      <ListSampleComponent items={[]} />
     </div>
   );
 }
