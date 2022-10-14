@@ -32,7 +32,6 @@ const UseEffectTestSampleComponent = () => {
 
 	const fetchUserInfo = async () => {
 		const res = await axios.get<UserInfo>('https://jsonplaceholder.typicode.com/users/1');
-		console.log("done", res);
 		return res.data;
 	};
 
