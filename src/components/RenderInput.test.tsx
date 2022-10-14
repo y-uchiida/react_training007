@@ -66,8 +66,6 @@ describe('button 要素のonclickイベントのテスト', () => {
 		// userEvent.type(<HTML要素>, <入力値>) でキーボード入力が制御できる
 		await user.type(inputElm, "test input");
 
-		console.log(inputElm.value);
-
 		// button要素を取得
 		const buttonElm = screen.getByRole("button");
 
