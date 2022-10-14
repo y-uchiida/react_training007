@@ -6,8 +6,6 @@ export default {
   ],
   testEnvironment: "jsdom",
   transform: {
-    // "^.+\\.tsx?$": "esbuild-jest",
-    "^.+\\.(t|j)sx?$": "@swc/jest",
+    "^.+\\.(t|j)sx?$": ["@swc/jest"],
   },
-  extensionsToTreatAsEsm: [".ts", ".tsx"],
 };

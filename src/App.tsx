@@ -9,6 +9,7 @@ import "./App.css";
 import RenderInput from "./components/RenderInput";
 import ListSampleComponent from "./components/ListSampleComponent";
 import UseEffectTestSampleComponent from "./components/UseEffectTestSampleComponent";
+import MockServerTestSampleComponent from "./components/MockServerTestSampleComponent";
 
 function App() {
   const counterValue = useAppSelector((state) => state.counter.value);
@@ -52,6 +53,9 @@ function App() {
 
       <h1>useEffect (initial mount operation) test</h1>
       <UseEffectTestSampleComponent />
+
+      <h1>API mocking test</h1>
+      <MockServerTestSampleComponent />
     </div>
   );
 }
