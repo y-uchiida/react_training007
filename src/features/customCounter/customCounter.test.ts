@@ -1,5 +1,7 @@
 import reducer, { increment, decrement, incrementByAmount, MODE, CustomCounterState } from "./customCounterSlice";
 
+import { fetchDummy } from "./customCounterSlice";
+
 describe('customCounter のテスト', () => {
 	describe('increment のテスト', () => {
 		let initialState: CustomCounterState = {
@@ -69,4 +71,29 @@ describe('customCounter のテスト', () => {
 			expect(state.value).toEqual(initialState.value + (baseAmount * 1000));
 		});
 	});
+
+	describe('extraReducer のテスト', () => {
+		const initialState: CustomCounterState = {
+			mode: MODE.One,
+			value: 0,
+			username: ''
+		};
+
+		it('fetchDummy が成功した場合、state の値が100 + 指定値 になる', () => {
+			const baseAmount = 5;
+			const action = { type: fetchDummy.fulfilled, payload: baseAmount };
+
+			const state = reducer(initialState, action);
+			expect(state.value).toEqual(100 + baseAmount);
+		});
+
+		it('fetchDummy が失敗(rejected)した場合、例外が発生する', async () => {
+			const baseAmount = 5;
+			const action = { type: fetchDummy.rejected, payload: baseAmount };
+
+			/* 例外をテストするには、expect 内で無名関数を作ってその中で例外を発生させる必要がある */
+			expect(() => reducer(initialState, action)).toThrowError('fetch failed');
+		});
+	});
+
 });
