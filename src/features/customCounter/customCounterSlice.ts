@@ -18,7 +18,7 @@ export interface CustomCounterState {
 const initialState: CustomCounterState = {
 	mode: MODE.One,
 	value: 0,
-	username: ''
+	username: null
 };
 
 /* 指定のミリ秒だけ、動作を停止する
@@ -101,6 +101,12 @@ export const customCounterSlice = createSlice({
 		 */
 		builder.addCase(fetchJSON.fulfilled, (state, { payload }) => {
 			state.username = payload;
+		});
+
+		/* 非同期でのユーザー情報取得が失敗した場合は、stateにユーザー名'anonymous'をセットする
+		 */
+		builder.addCase(fetchJSON.rejected, (state) => {
+			state.username = 'anonymous';
 		});
 	}
 });
