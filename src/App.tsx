@@ -12,6 +12,7 @@ import UseEffectTestSampleComponent from "./components/UseEffectTestSampleCompon
 import MockServerTestSampleComponent from "./components/MockServerTestSampleComponent";
 import CustomCounterSampleComponent from "./components/CustomCounterSampleComponent";
 import FetchAsyncSampleComponent from "./components/FetchAsyncSampleComponent";
+import CustomHooksSampleComponent from "./components/CustomHooksSampleComponent";
 
 function App() {
   const counterValue = useAppSelector((state) => state.counter.value);
@@ -64,6 +65,9 @@ function App() {
 
       <h1>redux async test</h1>
       <FetchAsyncSampleComponent />
+
+      <h1>custom hook test</h1>
+      <CustomHooksSampleComponent initialCount={42} />
     </div>
   );
 }

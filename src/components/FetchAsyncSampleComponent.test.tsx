@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useTransition } from 'react';
-import { cleanup, findByTestId, render, screen } from "@testing-library/react";
+import { cleanup, findByTestId, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider as ReduxProvider } from "react-redux";
 import FetchAsyncSampleComponent from "./FetchAsyncSampleComponent";
@@ -9,6 +9,7 @@ import customCounterReducer from "../features/customCounter/customCounterSlice";
 
 import { rest } from "msw";
 import { setupServer } from "msw/node";
+import { act } from 'react-dom/test-utils';
 
 afterEach(() => cleanup())
 
@@ -34,10 +35,6 @@ describe('コンポーネントからRedux のcounter非同期処理を検証す
 		);
 
 		const valueElm = screen.getByTestId('countValue');
-		const changed = new Promise(resolve => { });
-		valueElm.addEventListener('change', (e) => {
-			console.log(e);
-		});
 
 		await user.click(screen.getByText('fetchDummy'));
 
