@@ -11,6 +11,7 @@ import ListSampleComponent from "./components/ListSampleComponent";
 import UseEffectTestSampleComponent from "./components/UseEffectTestSampleComponent";
 import MockServerTestSampleComponent from "./components/MockServerTestSampleComponent";
 import CustomCounterSampleComponent from "./components/CustomCounterSampleComponent";
+import FetchAsyncSampleComponent from "./components/FetchAsyncSampleComponent";
 
 function App() {
   const counterValue = useAppSelector((state) => state.counter.value);
@@ -60,6 +61,9 @@ function App() {
 
       <h1>Redux integration test</h1>
       <CustomCounterSampleComponent />
+
+      <h1>redux async test</h1>
+      <FetchAsyncSampleComponent />
     </div>
   );
 }
