@@ -24,9 +24,8 @@ const initialState: CustomCounterState = {
 /* 指定のミリ秒だけ、動作を停止する
  * 外部APIとの非同期通信の挙動再現用関数
  */
-const sleep = (msec: number) => {
-	const start = new Date().getMilliseconds();
-	while (new Date().getMilliseconds() - start < msec);
+const sleep = async (msec: number) => {
+	await new Promise(s => setTimeout(s, msec))
 };
 
 /* 
