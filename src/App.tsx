@@ -10,6 +10,7 @@ import RenderInput from "./components/RenderInput";
 import ListSampleComponent from "./components/ListSampleComponent";
 import UseEffectTestSampleComponent from "./components/UseEffectTestSampleComponent";
 import MockServerTestSampleComponent from "./components/MockServerTestSampleComponent";
+import CustomCounterSampleComponent from "./components/CustomCounterSampleComponent";
 
 function App() {
   const counterValue = useAppSelector((state) => state.counter.value);
@@ -56,6 +57,9 @@ function App() {
 
       <h1>API mocking test</h1>
       <MockServerTestSampleComponent />
+
+      <h1>Redux integration test</h1>
+      <CustomCounterSampleComponent />
     </div>
   );
 }

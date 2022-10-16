@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import axios from 'axios';
+import { RootState } from "../../app/store";
 
 export const enum MODE {
 	"One",
@@ -45,7 +46,7 @@ export const fetchJSON = createAsyncThunk('fetch/api', async () => {
 });
 
 export const customCounterSlice = createSlice({
-	name: "counter",
+	name: "customCounter",
 	initialState,
 	reducers: {
 		increment: (state) => {
@@ -108,7 +109,8 @@ export const customCounterSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { increment, decrement, incrementByAmount } = customCounterSlice.actions;
 
-export const selectCount = (state: CustomCounterState) => state.value;
-export const selectUserName = (state: CustomCounterState) => state.username;
+// RootState からstoreの内容をとってきて、それぞれのstateの値を返す
+export const selectCount = (state: RootState) => state.customCounter.value;
+export const selectUserName = (state: RootState) => state.customCounter.username;
 
 export default customCounterSlice.reducer;
