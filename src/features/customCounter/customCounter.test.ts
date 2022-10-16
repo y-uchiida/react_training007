@@ -79,11 +79,11 @@ describe('customCounter のテスト', () => {
 			username: ''
 		};
 
-		it('fetchDummy が成功した場合、state の値が100 + 指定値 になる', () => {
+		it('fetchDummy が成功した場合、state の値が100 + 指定値 になる', async () => {
 			const baseAmount = 5;
 			const action = { type: fetchDummy.fulfilled, payload: baseAmount };
 
-			const state = reducer(initialState, action);
+			const state = await reducer(initialState, action);
 			expect(state.value).toEqual(100 + baseAmount);
 		});
 
